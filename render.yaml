@@ -2,9 +2,9 @@ services:
   - type: web
     name: n8n
     env: docker
-    region: oregon # optional (defaults to oregon)
-    plan: standard # optional (defaults to starter)
-    branch: main # optional (defaults to master)
+    region: oregon
+    plan: standard
+    branch: main
     numInstances: 1
     healthCheckPath: /
     envVars:
@@ -32,6 +32,13 @@ services:
           property: password
       - key: DB_POSTGRESDB_SCHEMA
         value: public
+      # CRITICAL FOR GOOGLE OAUTH - Add these lines
+      - key: N8N_HOST
+        value: n8n-render-1-8r9m.onrender.com
+      - key: N8N_PROTOCOL
+        value: https
+      - key: N8N_EDITOR_BASE_URL
+        value: https://n8n-render-1-8r9m.onrender.com
       - key: WEBHOOK_URL
         value: https://n8n-render-1-8r9m.onrender.com/
       - key: N8N_ENCRYPTION_KEY
