@@ -32,21 +32,27 @@ services:
           property: password
       - key: DB_POSTGRESDB_SCHEMA
         value: public
-      # CRITICAL FOR GOOGLE OAUTH - Add these lines
+      # Add all these from .env
+      - key: PORT
+        value: "5678"
       - key: N8N_HOST
         value: n8n-render-1-8r9m.onrender.com
       - key: N8N_PROTOCOL
         value: https
+      - key: N8N_PORT
+        value: "443"
       - key: N8N_EDITOR_BASE_URL
         value: https://n8n-render-1-8r9m.onrender.com
-      - key: WEBHOOK_URL
-        value: https://n8n-render-1-8r9m.onrender.com/
       - key: N8N_ENCRYPTION_KEY
-        value: YOUR_ENCRYPTION_KEY_HERE
+        value: YOUR_SECURE_ENCRYPTION_KEY
+      - key: WEBHOOK_URL
+        value: https://n8n-render-1-8r9m.onrender.com
+      - key: VUE_APP_URL_BASE_API
+        value: https://n8n-render-1-8r9m.onrender.com
       - key: GENERIC_TIMEZONE
-        value: America/Sao_Paulo
+        value: Africa/Nairobi
       - key: TZ
-        value: America/Sao_Paulo
+        value: Africa/Nairobi
       - key: N8N_LOG_LEVEL
         value: info
       - key: EXECUTIONS_DATA_PRUNE
@@ -61,20 +67,8 @@ services:
         value: false
       - key: EXECUTIONS_DATA_SAVE_MANUAL_EXECUTIONS
         value: false
-      - key: N8N_HOST
-        value: n8n-render-1-8r9m.onrender.com
-      - key: N8N_PROTOCOL
-        value: https
-      - key: N8N_PORT
-        value: "443"
-      - key: N8N_EDITOR_BASE_URL
-        value: https://n8n-render-1-8r9m.onrender.com
-      - key: WEBHOOK_URL
-        value: https://n8n-render-1-8r9m.onrender.com/
-         # Add this - prevents localhost redirect
-      - key: REDIRECT_URI
-        value: https://n8n-render-1-8r9m.onrender.com/rest/oauth2-credential/callback
-
+      - key: N8N_METRICS
+        value: true
     disk:
       name: n8n-disk
       mountPath: /home/node/.n8n
