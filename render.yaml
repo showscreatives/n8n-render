@@ -61,6 +61,20 @@ services:
         value: false
       - key: EXECUTIONS_DATA_SAVE_MANUAL_EXECUTIONS
         value: false
+      - key: N8N_HOST
+        value: n8n-render-1-8r9m.onrender.com
+      - key: N8N_PROTOCOL
+        value: https
+      - key: N8N_PORT
+        value: "443"
+      - key: N8N_EDITOR_BASE_URL
+        value: https://n8n-render-1-8r9m.onrender.com
+      - key: WEBHOOK_URL
+        value: https://n8n-render-1-8r9m.onrender.com/
+         # Add this - prevents localhost redirect
+      - key: REDIRECT_URI
+        value: https://n8n-render-1-8r9m.onrender.com/rest/oauth2-credential/callback
+
     disk:
       name: n8n-disk
       mountPath: /home/node/.n8n
